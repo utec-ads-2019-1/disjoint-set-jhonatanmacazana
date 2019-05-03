@@ -151,15 +151,15 @@ void unionSize(int val1, int val2)
 {
     auto parent1 = find(val1, mapForSize);
     auto parent2 = find(val2, mapForSize);
-    if(parent1->rank == parent2->rank)
+
+    if(parent1->rank <= parent2->rank)
     {
         parent1->parent = parent2;
-        parent2->rank++;
     }
-    else if(parent1->rank < parent2->rank)
-        parent1->parent = parent2;
     else
         parent2->parent = parent1;
+
+    parent2->rank++;
 }
 
 
